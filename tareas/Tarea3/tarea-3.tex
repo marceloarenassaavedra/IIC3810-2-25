@@ -1,0 +1,154 @@
+\documentclass[10pt]{article}
+\usepackage{logo}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{color}
+
+\newcommand{\cyan}[1]{\textCyan #1\textBlack}
+\newcommand{\red}[1]{\textRed #1\textBlack}
+\newcommand{\green}[1]{\textGreen #1\textBlack}
+\newcommand{\blue}[1]{\textBlue #1\textBlack}
+\newcommand{\black}[1]{\textBlack #1\textBlack}
+\newcommand{\magenta}[1]{\textMagenta #1\textBlack}
+\newcommand{\brown}[1]{\textBrown #1\textBlack}
+\newcommand{\vs}[1]{\vspace{#1mm}}
+\newcommand{\ignore}{}
+\newcommand{\ri}[1]{\text{\red{#1}}}
+\newcommand{\hs}{\hat\sigma}
+\newcommand{\modelos}{{\it modelos}}
+\newcommand{\B}{{\tt B}}
+\newcommand{\nspace}{\text{NSPACE}}
+\newcommand{\logspace}{\text{LOGSPACE}}
+\newcommand{\nlogspace}{\text{NLOGSPACE}}
+\newcommand{\npspace}{\text{NPSPACE}}
+\newcommand{\pspace}{\text{PSPACE}}
+\newcommand{\ph}{\text{PH}}
+\newcommand{\expspace}{\text{EXPSPACE}}
+\newcommand{\nexpspace}{\text{NEXPSPACE}}
+\newcommand{\dspace}{\text{DSPACE}}
+\newcommand{\espacio}{{\it espacio}}
+\newcommand{\tiempo}{{\it tiempo}}
+\newcommand{\ptime}{\text{PTIME}}
+\newcommand{\dtime}{\text{DTIME}}
+\newcommand{\exptime}{\text{EXPTIME}}
+\newcommand{\nexptime}{\text{NEXPTIME}}
+\newcommand{\CC}{{\cal C}}
+\newcommand{\sat}{\text{SAT}}
+\newcommand{\tcnfu}{\text{3-CNF-SAT-UNSAT}}
+\newcommand{\usat}{\text{unique-SAT}}
+\newcommand{\np}{\text{NP}}
+\newcommand{\ntime}{\text{NTIME}}
+\newcommand{\cnf}{\text{CNF-SAT}}
+\newcommand{\tcnf}{\text{3-CNF-SAT}}
+\newcommand{\dcnf}{\text{2-CNF-SAT}}
+\newcommand{\horn}{\text{HORN-SAT}}
+\newcommand{\nhorn}{\text{NEG-HORN-SAT}}
+\newcommand{\co}{\text{co-}}
+\newcommand{\rp}{\leq^\text{\it p}_\text{\it m}}
+\newcommand{\tur}{\leq^\text{\it p}_\text{\it T}}
+\newcommand{\reach}{\text{CAMINO}}
+\newcommand{\pe}{\text{PROG-ENT}}
+\newcommand{\pl}{\text{PROG-LIN}}
+\newcommand{\cor}{\text{CONT-REG}}
+\newcommand{\er}{\text{EQUIV-REG}}
+\newcommand{\qbf}{\text{QBF}}
+\newcommand{\shp}{\text{Succinct-HP}}
+\newcommand{\hp}{\text{HP}}
+\newcommand{\cdp}{\text{DP}}
+\newcommand{\clique}{\text{CLIQUE}}
+\newcommand{\eclique}{\text{exact-CLIQUE}}
+\newcommand{\costo}{\text{costo}}
+\newcommand{\tsp}{\text{TSP}}
+\newcommand{\tspu}{\text{unique-TSP}}
+\newcommand{\no}{\text{NO}}
+\newcommand{\yes}{\text{YES}}
+\newcommand{\br}{\text{CERTAIN-ANSWERS}}
+\newcommand{\dpc}{\text{DP}}
+
+\newcommand{\CROM}{\text{CROM}}
+\newcommand{\EVAL}{\text{EVAL}}
+\newcommand{\EQUIV}{\text{EQUIV}}
+
+\newcommand{\re}{\text{RE}}
+\newcommand{\dec}{\text{R}}
+\newcommand{\resp}[1]{{\text{\bf [Responsable: #1]}}}
+
+\newcommand{\GRAPHISO}{\text{GRAPH-ISO}}
+\newcommand{\cqbf}{\text{CNF-QBF}}
+\newcommand{\am}{\text{AM}}
+\newtheorem{lema}{Lema}
+\newcommand{\pr}{\text{\rm {\bf Pr}}}
+\newcommand{\scnf}{\#\text{CNF-SAT}}
+\newcommand{\ucnf}{\text{U-CNF-SAT}}
+
+\begin{document}
+
+
+\begin{tabular}{ccl}
+\begin{tabular}{c}
+\psfig{file=puclogo.eps}
+\end{tabular}
+&\ \ \ & 
+\begin{tabular}{l}
+PONTIFICIA UNIVERSIDAD CATOLICA DE CHILE\\
+ESCUELA DE INGENIERIA\\
+DEPARTAMENTO DE CIENCIA DE LA COMPUTACION
+\end{tabular}
+\end{tabular}
+
+\vspace{1cm}
+
+\begin{center}
+\bf Tópicos Avanzados en Teoría de la Computación - IIC3810\\
+\bf Tarea 3\\
+\bf Fecha de entrega: miércoles 22 de octubre
+\end{center}
+
+\vspace{1cm}
+
+\begin{enumerate}
+\item En esta pregunta usted debe construir un protocolo interactivo
+  con aleatoriedad pública para $\overline{\GRAPHISO}$ a partir del
+  protocolo interactivo dado en clases para $\cqbf$.
+
+\item Utilizando las ideas vistas en clases, demuestre que:
+  \begin{eqnarray*}
+    \bigcup_{k \in \mathbb{N}} \am[n^k] & \subseteq & \pspace.
+  \end{eqnarray*}
+
+
+\item En esta pregunta usted debe completar la demostración del
+  teorema de Valiant-Vazirani a partir de siguiente lema demostrado
+  en clases:
+\begin{lema}
+Existe un algoritmo aleatorizado de tiempo polinomial que, dada una
+fórmula proposicional $\varphi$ en CNF con $n$ variables, genera una secuencia de
+fórmulas $\varphi_1$, $\ldots$, $\varphi_n$, $\varphi_{n+1}$, $\varphi_{n+2}$ en CNF tales que:
+\begin{itemize}
+\item Si $\varphi$ es consistente, entonces
+\begin{eqnarray*}
+\pr\bigg(\bigvee_{i=1}^{n+2} \scnf(\varphi_i) = 1\bigg) & \geq & \frac{1}{8}
+\end{eqnarray*}
+
+\item Si $\varphi$ es inconsistente, entonces cada fórmula $\varphi_i$ $(i \in \{1, \ldots, n+2\})$ es inconsistente.
+\end{itemize}
+\end{lema}
+En particular, a partir de este lema debe construir una MT probabilística $M$ con oráculo tal que $t_M(n)$ es $O(n^k)$ y para cada
+  \begin{align*}
+    H \ \subseteq \ \{ \psi \mid \psi \text{ es una fórmula en CNF tal que } \scnf(\psi) \geq 2\}
+  \end{align*}
+  y cada fórmula $\varphi$ en CNF:
+\vs{1}
+  \begin{itemize}
+\item Si $\varphi \in \cnf$, entonces $\pr(M^{\ucnf_H} \text{ acepte } \varphi) \geq \frac{3}{4}$
+\vs{1}
+\item Si $\varphi \not\in \cnf$, entonces $\pr(M^{\ucnf_H} \text{ acepte } \varphi) = 0$
+\end{itemize}
+\end{enumerate}
+
+\end{document}
